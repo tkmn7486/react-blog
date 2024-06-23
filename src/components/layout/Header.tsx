@@ -1,4 +1,4 @@
-import { Link, To, useLocation, useParams } from "react-router-dom"
+import { Link, To, useLocation } from "react-router-dom"
 import style from "./style.module.scss"
 
 import { Label } from "@/components/ui/label"

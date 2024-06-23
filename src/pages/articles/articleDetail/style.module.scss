@@ -46,3 +46,12 @@
         height: auto;
     }
 }
+
+.link-box {
+    h2 {
+        font-size: 1.3rem;
+        font-weight: bold;
+        border-bottom: var.$color-first solid;
+        margin: 2rem 0 1rem 0;
+    }
+}

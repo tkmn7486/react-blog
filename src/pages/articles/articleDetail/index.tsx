@@ -6,6 +6,7 @@ import {client} from "@/lib/client"
 import { Badge } from "@/components/ui/badge"
 
 import style from "./style.module.scss"
+import { Button } from '@/components/ui/button';
 
 type Article = {
     id:string,
@@ -15,7 +16,9 @@ type Article = {
     content:string,
     createdAt:string,
     updatedAt:string,
-    eyecatch?:{url:string, width:number, height:number} | undefined
+    eyecatch?:{url:string, width:number, height:number} | undefined,
+    url_type?: string | undefined,
+    url?: string | undefined
 }
 
 export const ArticleDetail=()=>{
@@ -29,7 +32,9 @@ export const ArticleDetail=()=>{
             content:"",
             createdAt:"",
             updatedAt:"",
-            eyecatch:undefined
+            eyecatch:undefined,
+            url_type:undefined,
+            url:undefined
         }
     )
 
@@ -55,6 +60,7 @@ export const ArticleDetail=()=>{
             }
             getData()
     },[])
+
     return (
         <div>
             {isLoading ?
@@ -77,6 +83,18 @@ export const ArticleDetail=()=>{
                     }
                 </div>
                 <div className={style.content}>{parse(article.content)}</div>
+                {article.url === undefined || article.url_type === undefined ? "" :
+                    <>
+                        <div className={style["link-box"]}>
+                            <h2>{article.url_type}</h2>
+                            <a href={article.url}>
+                                <Button>
+                                    {article.url_type}
+                                </Button>
+                            </a>
+                        </div>
+                    </>
+                }
             </>
             }
         </div>

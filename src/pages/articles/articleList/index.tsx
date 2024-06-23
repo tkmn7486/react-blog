@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card";
 import { useEffect, useState  } from "react";
 import {client} from "@/lib/client"
-import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Loading } from "@/pages/misc/loading";
 import style from "./style.module.scss"
 import dayjs from 'dayjs';
