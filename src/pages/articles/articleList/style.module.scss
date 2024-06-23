@@ -1,0 +1,30 @@
+@use "../../../style/var.scss";
+
+.page-label {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var.$color-first;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.card{
+    padding: 0.5rem;
+    margin: 1rem 0;
+    .badge-list {
+        margin: 5px 0;
+        .badge {
+            margin-right: 10px;
+        }
+    }
+    .title {
+        font-size: 1.0rem;
+        font-weight: bold;
+        color: var.$color-first;
+    }
+    .title-text {
+        white-space: nowrap; // 文字列を一行に保持
+        overflow: hidden; // コンテンツがコンテナを超えた場合に非表示にする
+        text-overflow: ellipsis; // はみ出したテキストを省略記号で置き換える
+    }
+}
