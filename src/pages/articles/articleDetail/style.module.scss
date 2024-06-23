@@ -15,12 +15,19 @@
     margin-bottom: 1rem;
 }
 
-.eyecatch {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0px 0px 12px -5px #777777;
+
+.eyecatch-box {
+    display:flex;
+    justify-content: center;
+    
+    .eyecatch {
+        width: 100%;
+        max-width: 1000px;
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0px 0px 12px -5px #777777;
+    }
 }
 
 .content {

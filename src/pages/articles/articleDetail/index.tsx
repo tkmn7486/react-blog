@@ -71,9 +71,11 @@ export const ArticleDetail=()=>{
                     </div>
                 </div>
                 <h1 className={style.title}>{article.title===undefined ? "名称未設定" : article.title}</h1>
-                {article.eyecatch === undefined ? <img src="" className={style.eyecatch}/> :
-                    <img src={article.eyecatch.url} className={style.eyecatch} />
-                }
+                <div className={style["eyecatch-box"]}>
+                    {article.eyecatch === undefined ? <img src="" className={style.eyecatch}/> :
+                        <img src={article.eyecatch.url} className={style.eyecatch} />
+                    }
+                </div>
                 <div className={style.content}>{parse(article.content)}</div>
             </>
             }

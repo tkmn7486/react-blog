@@ -74,20 +74,26 @@ export const ArticleList=(props:Page)=>{
                 <Loading /> :
             <>
                 <Label className={style["page-label"]}>{effectiveType.toUpperCase()}</Label>
-                {articles.map((article:any)=>
-                    <Link to={`/articles/${effectiveType.toLowerCase()}/${article.id}`} key={article.id}>
-                        <Card className={style.card}>
-                            <div className={style["badge-list"]}>
-                                <Badge className={style.badge}>{article.category}</Badge>
-                                {article.tags.map((tag:any, index:number)=>
-                                    <Badge key={index} className={style.badge}>{tag}</Badge>
-                                )}
-                            </div>
-                            <Label className={style.title}><p className={style["title-text"]}>{article.title}</p></Label>
-                            <br />
-                            <Label>{dayjs.utc(article.createdAt).tz('Asia/Tokyo').format('YYYY-MM-DD')}</Label>
-                        </Card>
-                    </Link>   
+                {articles.length === 0 ? <p className={style["no-article-text"]}>記事がありません</p> : (
+                    <div className={style["card-box"]}>
+                        {articles.map((article:any)=>
+                            <Link to={`/articles/${effectiveType.toLowerCase()}/${article.id}`} key={article.id}>
+                                <Card className={style.card}>
+                                    <div className={style["badge-list"]}>
+                                        <Badge className={style.badge}>{article.category}</Badge>
+                                        {article.tags.map((tag:any, index:number)=>
+                                            <Badge key={index} className={style.badge}>{tag}</Badge>
+                                        )}
+                                    </div>
+                                    <Label className={style.title}><p className={style["title-text"]}>{article.title}</p></Label>
+                                    <br />
+                                    <div className={style["created-at"]}>
+                                        <Label>{dayjs.utc(article.createdAt).tz('Asia/Tokyo').format('YYYY-MM-DD')}</Label>
+                                    </div>
+                                </Card>
+                            </Link>   
+                        )}
+                    </div>
                 )}
             </>
             }
