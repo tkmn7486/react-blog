@@ -19,7 +19,7 @@
 .eyecatch-box {
     display:flex;
     justify-content: center;
-    
+
     .eyecatch {
         width: 100%;
         max-width: 1000px;
@@ -42,5 +42,7 @@
 
     img {
         margin: 1rem 0;
+        max-width: 1000px;
+        height: auto;
     }
 }
