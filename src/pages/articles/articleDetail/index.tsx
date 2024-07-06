@@ -2,18 +2,18 @@ import parse from 'html-react-parser';
 import { Loading } from "@/pages/misc/loading"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import {client} from "@/lib/client"
 import { Badge } from "@/components/ui/badge"
 
 import style from "./style.module.scss"
 import { Button } from '@/components/ui/button';
+import { NiltoDetailData } from '@/lib/niltoGet';
 
 type Article = {
     id:string,
     title:string,
     category:[string],
-    tags:[string],
-    content:string,
+    tags:{tag:string}[],
+    contents:string,
     createdAt:string,
     updatedAt:string,
     eyecatch?:{url:string, width:number, height:number} | undefined,
@@ -28,8 +28,8 @@ export const ArticleDetail=()=>{
             id:"",
             title:"",
             category:[""],
-            tags:[""],
-            content:"",
+            tags:[],
+            contents:"",
             createdAt:"",
             updatedAt:"",
             eyecatch:undefined,
@@ -45,18 +45,9 @@ export const ArticleDetail=()=>{
     useEffect(()=>{
             const getData=async()=>{
                 setIsLoading(true)
-                await client.get({
-                    endpoint: 'blogs',
-                    queries: {
-                        limit: 1,
-                        ids: articleID
-                    }
-                })
-                .then((res) => {
-                    console.log(res.contents[0])
-                    setArticle(res.contents[0])
-                    setIsLoading(false)
-                });
+                const data = await NiltoDetailData(articleID)
+                setArticle(data)
+                setIsLoading(false)
             }
             getData()
     },[])
@@ -71,7 +62,7 @@ export const ArticleDetail=()=>{
                         <Badge className={style.badge}>{article.category}</Badge>
                         {article.tags === undefined ? "" :
                             article.tags.map((tag, index)=>
-                                <Badge key={index} className={style.badge} variant={"outline"}>{tag}</Badge>
+                                <Badge key={index} className={style.badge} variant={"outline"}>{tag.tag}</Badge>
                             )
                         }
                     </div>
@@ -82,7 +73,7 @@ export const ArticleDetail=()=>{
                         <img src={article.eyecatch.url} className={style.eyecatch} />
                     }
                 </div>
-                <div className={style.content}>{parse(article.content)}</div>
+                <div className={style.content}>{parse(article.contents)}</div>
                 {article.url === undefined || article.url_type === undefined ? "" :
                     <>
                         <div className={style["link-box"]}>
