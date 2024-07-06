@@ -52,11 +52,44 @@
     }
 }
 
+@media screen and (max-width: 960px) {
+    .content {
+        color: var.$color-first;
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-bottom: var.$color-first solid;
+            margin: 2rem 0 1rem 0;
+        }
+
+        li {
+            margin-left: 1rem;
+            list-style: square;
+        }
+
+        img {
+            margin: 1rem 0;
+            max-width: 100%;
+            height: auto;
+        }
+    }
+}
+
 .link-box {
     h2 {
         font-size: 1.3rem;
         font-weight: bold;
         border-bottom: var.$color-first solid;
         margin: 2rem 0 1rem 0;
+    }
+    div {
+        width: 95%;
+    }
+    a {
+        word-break:break-all;
+        color: var.$color-first;
+        text-decoration: underline;
+        cursor: pointer;
     }
 }

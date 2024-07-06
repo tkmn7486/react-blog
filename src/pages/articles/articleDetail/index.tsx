@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import style from "./style.module.scss"
 import { Button } from '@/components/ui/button';
 import { NiltoDetailData } from '@/lib/niltoGet';
+import { Card } from '@/components/ui/card';
 
 type Article = {
     id:string,
@@ -78,11 +79,9 @@ export const ArticleDetail=()=>{
                     <>
                         <div className={style["link-box"]}>
                             <h2>{article.url_type}</h2>
-                            <a href={article.url}>
-                                <Button>
-                                    {article.url_type}
-                                </Button>
-                            </a>
+                            <div>
+                                <a href={article.url}>{article.url}</a>
+                            </div>
                         </div>
                     </>
                 }
