@@ -5,9 +5,7 @@ import { useParams } from "react-router-dom"
 import { Badge } from "@/components/ui/badge"
 
 import style from "./style.module.scss"
-import { Button } from '@/components/ui/button';
 import { NiltoDetailData } from '@/lib/niltoGet';
-import { Card } from '@/components/ui/card';
 
 type Article = {
     id:string,
@@ -58,7 +56,7 @@ export const ArticleDetail=()=>{
             {isLoading ?
                 <Loading /> :
             <>
-                <div>
+                <div className={style.page}>
                     <div className={style["badge-box"]}>
                         <Badge className={style.badge}>{article.category}</Badge>
                         {article.tags === undefined ? "" :
