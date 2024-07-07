@@ -33,6 +33,10 @@
 .content {
     color: var.$color-first;
 
+    p {
+        line-height: 1.7rem;
+    }
+
     h2 {
         font-size: 1.3rem;
         font-weight: bold;
@@ -84,6 +88,10 @@
 @media screen and (max-width: 960px) {
     .content {
         color: var.$color-first;
+
+        p {
+            line-height: 1.7rem;
+        }
 
         h2 {
             font-size: 1.3rem;
