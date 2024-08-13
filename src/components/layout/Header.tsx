@@ -17,14 +17,17 @@ export const Header = () => {
     console.log("param:", params)
 
     const siteMenu:menu[] = [
-        {label: "Gallery", path: "/gallery"},
-        {label: "Contact", path: "/contact"},
+        {label: "全記事", path: "/articles/all"},
+        {label: "ゲーム", path: "/articles/game"},
+        {label: "映像作品", path: "/articles/movie"},
+        {label: "書籍", path: "/articles/book"},
+        {label: "技術", path: "/articles/tech"},
     ]
     
     return (
         <div className={style.header}>
             <Link to="/">
-                <h1 className={style["site-name"]}>Portfolio</h1>
+                <h1 className={style["site-name"]}>T5倉庫</h1>
             </Link>
             <div className={style["site-menu-container"]}>
             { siteMenu.map( (menu, index) =>
